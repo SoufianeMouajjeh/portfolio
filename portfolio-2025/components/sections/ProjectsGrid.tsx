@@ -129,13 +129,10 @@ export function ProjectsGrid() {
         Check my Projects here
       </motion.h2>
       
-      {/* Dashed border container */}
-      <div className="border border-dashed border-black/20 rounded-2xl p-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
       </div>
     </section>
   );

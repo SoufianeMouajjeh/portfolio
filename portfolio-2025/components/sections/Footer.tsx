@@ -9,7 +9,7 @@ export function Footer() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      className="w-full py-8 px-4 border-t border-dashed border-black/20"
+      className="w-full py-8 px-4"
     >
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-2 text-sm text-black/60">

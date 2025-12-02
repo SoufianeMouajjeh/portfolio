@@ -31,9 +31,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         "bg-black text-white border-black hover:bg-gray-900 focus:ring-black",
       outline:
         "bg-transparent text-black border-black/30 hover:bg-black/5 focus:ring-black/30",
-      // Soft variant matches Figma: light gray background, rounded 12px, subtle dual-shadow
+      // Soft variant matches Figma: light gray bg, rounded-xl, dual inset/outset shadow, JetBrains Mono
       soft:
-        "bg-[#e2e6ed] box-border inline-flex justify-center items-center gap-3 px-[14px] py-[2px] rounded-[12px] shadow-[2px_2px_4px_0px_rgba(94,96,98,0.12)] shadow-[-2px_-2px_4px_0px_rgba(94,96,98,0.12)]",
+        "bg-[#e2e6ed] text-black text-[14px] font-normal font-['JetBrains_Mono'] leading-[30px] border-none px-[14px] py-[2px] rounded-xl gap-3 shadow-[-2px_-2px_4px_0px_rgba(94,96,98,0.12),2px_2px_4px_0px_rgba(94,96,98,0.12)]",
       ghost:
         "bg-transparent text-black border-transparent hover:bg-black/5 focus:ring-black/20",
     };
@@ -47,29 +47,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
-        // Put sizes before variants so variant-specific padding/typography can override size defaults
         className={cn(baseStyles, sizes[size], variants[variant], className)}
         {...props}
       >
-        {variant === "soft" ? (
-          // Render exact structure provided for the soft variant (icon group + JetBrains Mono text)
-          <>
-            <div className="w-4 h-4 relative">
-              <div className="w-2.5 h-3.5 left-[2.67px] top-[1.33px] absolute outline-[1.33px] outline-offset-[-0.67px] outline-black" />
-              <div className="w-1 h-1.5 left-[7px] top-[1.33px] absolute outline-[1.33px] outline-offset-[-0.67px] outline-black" />
-              <div className="w-2.5 h-0 left-[3.33px] top-[1.33px] absolute outline-[1.33px] outline-offset-[-0.67px] outline-black" />
-            </div>
-            <div className="text-center justify-start text-black text-[14px] font-normal font-['JetBrains_Mono'] leading-[30px]">
-              {children}
-            </div>
-          </>
-        ) : (
-          <>
-            {leftIcon && <span className="shrink-0">{leftIcon}</span>}
-            {children}
-            {rightIcon && <span className="shrink-0">{rightIcon}</span>}
-          </>
-        )}
+        {leftIcon && <span className="shrink-0 w-4 h-4">{leftIcon}</span>}
+        {children}
+        {rightIcon && <span className="shrink-0 w-4 h-4">{rightIcon}</span>}
       </button>
     );
   }

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bookmark, Mail } from "lucide-react";
+import { TwitterIcon, ContactIcon } from "@/components/icons";
 import { Button } from "@/components/ui/Button";
 import AvatarModel from "@/components/3d/AvatarModel";
 
@@ -64,14 +64,14 @@ export function HeroSection() {
         >
           <Button
             variant="soft"
-            leftIcon={<Bookmark className="w-4 h-4" />}
+            leftIcon={<TwitterIcon className="w-4 h-4" />}
           >
             Twitter DM
           </Button>
           <span className="text-black/40 font-medium">OR</span>
           <Button
             variant="soft"
-            leftIcon={<Mail className="w-4 h-4" />}
+            leftIcon={<ContactIcon className="w-4 h-4" />}
           >
             Email Me
           </Button>
