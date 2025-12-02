@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Archivo:wght@700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #C5CBD7;
+  --foreground: #000000;
+  --muted: #6B7280;
+  --accent: #2F00FF;
+  --card-bg: #000000;
+  --card-text: #FFFFFF;
+
+  /* Theme variables (moved from unsupported @theme rule) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* Prefer figtree variable from layout, fall back to --font-inter if present */
+  /* Prefer local Figtree if available */
+  --font-sans: 'FigtreeLocal', var(--font-figtree, var(--font-inter));
+  /* Mono variable from layout (JetBrains Mono) */
+  /* Prefer local JetBrains Mono if available */
+  --font-mono: 'JetBrainsMonoLocal', var(--font-mono, var(--font-jetbrains-mono));
+  --font-pixel: var(--font-silkscreen);
+
+  /* If you have a local or hosted Doto font, replace the --font-doto value accordingly. */
+  /* Prefer Doto if available; fall back to Archivo (imported above) then system fonts */
+  --font-doto: 'Doto', 'Doto ExtraBold', 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Load Doto from /public/fonts if present. If the files are missing, browsers will fall back to Archivo. */
+/* Load Doto from /public/fonts. A variable TTF is available in the repository. */
+@font-face {
+  font-family: 'Doto';
+  src: url('/fonts/Doto-VariableFont_ROND,wght.ttf') format('truetype');
+  /* If you have woff2 builds, prefer them here for better performance. */
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Local Figtree variable font (used via next/font/google in layout) */
+@font-face {
+  font-family: 'FigtreeLocal';
+  src: url('/fonts/Figtree/Figtree-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Local JetBrains Mono variable font */
+@font-face {
+  font-family: 'JetBrainsMonoLocal';
+  src: url('/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Doto font (used for the name in Figma). Fallbacks provided.
+  Note: 'Doto' is a custom font referenced in Figma and isn't available on Google Fonts.
+  To match the design exactly, add the Doto font files to /public/fonts and declare an @font-face.
+  Inter is imported above for general use. */
+
+
+
+/* Utility to match Figma name style: Doto ExtraBold at 36px */
+.font-doto {
+  font-family: var(--font-doto);
+  font-weight: 800; /* extra bold */
+  font-size: 36px;
+  line-height: 1;
+}
+
+/* Doto utility variants */
+.doto-template {
+  /* template: replace <uniquifier> and <weight> as needed */
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings: "ROND" 0;
+}
+
+.doto-800 {
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings: "ROND" 0;
+  font-size: 40px;
+  line-height: 1;
+}
+
+/* JetBrains Mono utilities for the role description (matches Figma node 23:503) */
+.mono-body {
+  font-family: 'JetBrainsMonoLocal', var(--font-mono), monospace;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px; /* leading-[32px] in Figma */
+  white-space: pre-wrap;
+  text-align: center;
+}
+
+.mono-extrabold {
+  font-family: 'JetBrainsMonoLocal', var(--font-mono), monospace;
+  font-weight: 800;
+}
+
+/* Calibri utility for Arabic name (uses system Calibri if available).
+   To embed Calibri, add woff/woff2 files to /public/fonts and an @font-face rule.
+*/
+.calibri-bold {
+  font-family: 'CalibriLocal', 'Calibri', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40px;
+  line-height: 1; /* matches leading-[normal] in Figma metadata */
+}
+
+/* Embedded Calibri from /public/fonts/calibri-font-family */
+@font-face {
+  font-family: 'CalibriLocal';
+  src: url('/fonts/calibri-font-family/calibri-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CalibriLocal';
+  src: url('/fonts/calibri-font-family/calibri-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Font utilities */
+.font-pixel {
+  font-family: var(--font-silkscreen), monospace;
+}
+
+.font-mono {
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+.font-sans {
+  font-family: var(--font-inter), sans-serif;
+}
