@@ -17,44 +17,44 @@ const socialLinks: SocialLink[] = [
     id: "twitter", 
     label: "Twitter", 
     href: "https://x.com/qLf81259152", 
-    icon: <TwitterIcon className="w-4 h-4" /> 
+    icon: <TwitterIcon className="w-4 h-4 text-black/70" /> 
   },
   { 
     id: "github", 
     label: "Github", 
     href: "https://github.com/SoufianeMouajjeh", 
-    icon: <GithubIcon className="w-4 h-4" /> 
+    icon: <GithubIcon className="w-4 h-4 text-black/70" /> 
   },
   { 
     id: "resume", 
     label: "Resume", 
     href: "/resume.pdf", 
-    icon: <FileText className="w-4 h-4" /> 
+    icon: <FileText className="w-4 h-4 text-black/70" /> 
   },
   { 
     id: "linkedin", 
     label: "Linkedin", 
     href: "https://www.linkedin.com/in/soufiane-el-mouajjeh-052929280/", 
-    icon: <LinkedInIcon className="w-4 h-4" /> 
+    icon: <LinkedInIcon className="w-4 h-4 text-black/70" /> 
   },
   { 
     id: "discord", 
     label: "Discord", 
     href: "https://discord.com", 
-    icon: <DiscordIcon className="w-4 h-4" />
+    icon: <DiscordIcon className="w-4 h-4 text-black/70" />
   },
 ];
 
 export function LinksSection() {
   return (
-    <section className="w-full py-8 px-4">
+    <section className="w-full py-6 px-4">
       <motion.p
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-lg md:text-xl text-black/80 mb-6 font-sans"
+        className="text-lg md:text-xl text-black/80 mb-6 mono-paragraph"
       >
-        You can check these links if you wish to
+        You can check these <span className="mono-extrabold">links</span> if you wish to
       </motion.p>
       
       <div className="flex flex-wrap gap-3">

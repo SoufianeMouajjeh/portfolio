@@ -105,9 +105,28 @@ body {
   text-align: center;
 }
 
+.mono-paragraph {
+  font-family: 'JetBrainsMonoLocal', var(--font-mono), monospace;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px; /* leading-[28px] in Figma */
+}
+
 .mono-extrabold {
   font-family: 'JetBrainsMonoLocal', var(--font-mono), monospace;
   font-weight: 800;
+}
+
+/* Small caption utility using JetBrains Mono at 10px */
+.mono-caption {
+  font-family: 'JetBrainsMonoLocal', var(--font-mono), monospace;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+/* Paragraph utility for project cards - JetBrains Mono at 18px Medium */
+.mono-paragraph {
+  font-family: 'JetBrainsMonoLocal', var(--font-mono), monospace;
 }
 
 /* Calibri utility for Arabic name (uses system Calibri if available).
@@ -149,4 +168,9 @@ body {
 
 .font-sans {
   font-family: var(--font-inter), sans-serif;
+}
+
+/* Figtree utility: uses the --font-sans root variable which prefers FigtreeLocal */
+.font-figtree {
+  font-family: var(--font-sans);
 }

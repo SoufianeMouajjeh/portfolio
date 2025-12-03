@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TwitterIcon, ContactIcon } from "@/components/icons";
+import { SavedIcon, ContactIcon } from "@/components/icons";
 import { Button } from "@/components/ui/Button";
 import AvatarModel from "@/components/3d/AvatarModel";
 
@@ -56,7 +56,7 @@ export function HeroSection() {
         </motion.div>
 
         {/* Action Buttons */}
-        <motion.div
+          <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
@@ -64,11 +64,11 @@ export function HeroSection() {
         >
           <Button
             variant="soft"
-            leftIcon={<TwitterIcon className="w-4 h-4" />}
+            leftIcon={<SavedIcon className="w-4 h-4" />}
           >
             Twitter DM
           </Button>
-          <span className="text-black/40 font-medium">OR</span>
+          <span className="text-black/40 font-medium font-figtree">OR</span>
           <Button
             variant="soft"
             leftIcon={<ContactIcon className="w-4 h-4" />}

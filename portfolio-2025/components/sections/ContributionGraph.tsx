@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const dayLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const contributionColors = [
   "bg-black/5",      // Level 0 - no contribution
@@ -49,7 +48,7 @@ export function ContributionGraph({ contributions, dates, totalContributions }: 
   };
   
   return (
-    <div className="relative w-full py-6">
+    <div className="relative w-full py-0">
       {/* Tooltip */}
       <AnimatePresence>
         {hoveredDay && (
@@ -79,43 +78,27 @@ export function ContributionGraph({ contributions, dates, totalContributions }: 
         )}
       </AnimatePresence>
       
-      <div className="px-4">
+      <div className="px-2">
         {/* Months header */}
-        <div className="flex gap-[14px] mb-2 pl-[44px]">
+  <div className="flex gap-3.5 mb-2 pl-11">
           {months.map((month, index) => (
             <motion.span
               key={month}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: index * 0.02 }}
-              className="text-xs text-black/50 font-mono w-[60px]"
+              className="text-[10px] text-black/50 mono-caption w-[60px]"
             >
               {month}
             </motion.span>
           ))}
         </div>
-        
-        {/* Day labels and Contribution grid */}
-        <div className="flex gap-2">
-          {/* Day labels on the left */}
-          <div className="flex flex-col gap-[2px] justify-start pt-0">
-            {dayLabels.map((day, index) => (
-              <div
-                key={day}
-                className="h-3 flex items-center text-[10px] text-black/50 font-mono w-8"
-                style={{ 
-                  visibility: index % 2 === 1 ? 'visible' : 'hidden' // Show only Mon, Wed, Fri
-                }}
-              >
-                {day}
-              </div>
-            ))}
-          </div>
-          
-          {/* Contribution grid */}
-          <div className="flex gap-[2px]">
+
+        {/* Contribution grid */}
+        <div className="flex">
+          <div className="flex gap-0.5">
             {contributions.map((week, weekIndex) => (
-              <div key={weekIndex} className="flex flex-col gap-[2px]">
+              <div key={weekIndex} className="flex flex-col gap-0.5">
                 {week.map((level, dayIndex) => (
                   <motion.div
                     key={`${weekIndex}-${dayIndex}`}
@@ -147,11 +130,11 @@ export function ContributionGraph({ contributions, dates, totalContributions }: 
         </div>
         
         {/* Caption */}
-        <div className="flex justify-between mt-4 px-4">
-          <span className="text-xs text-black/50 font-mono">
-            Total {totalContributions.toLocaleString()} contributions in lifetime
+        <div className="flex justify-between mt-2 px-5 mb-5">
+          <span className="text-black/50 mono-caption">
+            Total <span className="mono-extrabold">{totalContributions.toLocaleString()}</span> contributions in lifetime
           </span>
-          <span className="text-xs text-black/40 font-mono">
+          <span className="text-black/40 mono-caption">
             Made by Soufiane
           </span>
         </div>
